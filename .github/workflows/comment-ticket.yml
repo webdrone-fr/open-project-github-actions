@@ -2,6 +2,11 @@ name: Comment on Work Package Activity
 
 on:
   workflow_call:
+    secrets:
+      OPEN_PROJECT_AUTH:
+        required: true
+      OPEN_PROJECT_URL:
+        required: true
 
 jobs:
   comment-on-activity:
