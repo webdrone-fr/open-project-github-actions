@@ -1,9 +1,7 @@
 name: Comment on Work Package Activity
 
 on:
-  push:
-    branches:
-      - '**'  # Remplacez "main" par la branche de votre choix
+  workflow_call:
 
 jobs:
   comment-on-activity:
