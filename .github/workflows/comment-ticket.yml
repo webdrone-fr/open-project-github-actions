@@ -33,7 +33,7 @@ jobs:
               const COMMIT_LINK = `[Commit Link](https://github.com/${REPO_NAME}/commit/${COMMIT_SHA})`;
               const COMMENT = `${COMMIT_MESSAGE}\n\n${COMMIT_LINK}`;
               const cleanIssueNumber = ISSUE_NUMBER.split("#")[1];
-              fetch(`${url}/${cleanIssueNumber}/activities``, {
+              fetch(`${url}/${cleanIssueNumber}/activities`, {
                 method: "POST",
                 agent: httpsAgent,
                 headers: {
