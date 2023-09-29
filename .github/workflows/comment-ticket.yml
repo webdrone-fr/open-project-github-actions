@@ -15,8 +15,8 @@ jobs:
       id: commit_message
       with:
         script: |
-          const authToken = ${{ secrets.OPEN_PROJECT_AUTH }};
-          const url = ${{ secrets.OPEN_PROJECT_URL }};
+          const authToken = "${{ secrets.OPEN_PROJECT_AUTH }}";
+          const url = "${{ secrets.OPEN_PROJECT_URL }}";
           const https = require('https');
           const httpsAgent = new https.Agent({
             rejectUnauthorized: false,
