@@ -15,8 +15,8 @@ jobs:
       id: commit_message
       with:
         script: |
-          const authToken = "${{ secrets.OPEN_PROJECT_AUTH }}";
-          const url = "${{ secrets.OPEN_PROJECT_URL }}";
+          const authToken = "${{ secrets.OPEN_PROJECT_AUTH }}"";
+          const url = "${{ secrets.OPEN_PROJECT_URL }}"";
           const https = require('https');
           const httpsAgent = new https.Agent({
             rejectUnauthorized: false,
@@ -27,15 +27,13 @@ jobs:
             const COMMIT_MESSAGE = commit.message
             const ISSUE_NUMBERS = COMMIT_MESSAGE.match(/#[0-9]+/g) || [];
             const COMMIT_SHA = "${{ github.sha }}";
-            const REPO_OWNER = "${{ github.repository_owner }}";
             const REPO_NAME = "${{ github.repository }}";
 
             for (const ISSUE_NUMBER of ISSUE_NUMBERS) {
               const COMMIT_LINK = `[Commit Link](https://github.com/${REPO_NAME}/commit/${COMMIT_SHA})`;
               const COMMENT = `${COMMIT_MESSAGE}\n\n${COMMIT_LINK}`;
               const cleanIssueNumber = ISSUE_NUMBER.split("#")[1];
-              console.log("Sending resquest to " + url + /" + cleanIssueNumber + "/activities");
-              fetch(url + "/" + cleanIssueNumber + "/activities", {
+              fetch(`${url}/${cleanIssueNumber}/activities``, {
                 method: "POST",
                 agent: httpsAgent,
                 headers: {
