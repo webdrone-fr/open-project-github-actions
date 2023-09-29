@@ -15,6 +15,7 @@ jobs:
         script: |
           const authToken = process.env.OPEN_PROJECT_AUTH;
           const url = process.env.OPEN_PROJECT_URL;
+          console.log("Open project url = ", url);
           const https = require('https');
           const httpsAgent = new https.Agent({
             rejectUnauthorized: false,
